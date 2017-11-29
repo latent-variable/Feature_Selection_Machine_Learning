@@ -5,7 +5,7 @@ SOURCES=$(wildcard *.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)
 
 $(EXEC): $(OBJECTS)
-	$(CC) $(OBJECTS) -o  $(EXEC)
+	$(CC) -g  $(OBJECTS) -o  $(EXEC)
 
 %.o: %.cpp
 	$(CC) -c -g $(CC_FLAGS) $< -o $@

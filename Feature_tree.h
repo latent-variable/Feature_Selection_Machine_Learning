@@ -1,7 +1,7 @@
 #ifndef FEATURE_TREE_H
 #define FEATURE_TREE_H
-#include <queue>
 #include <vector>
+
 
 using namespace std;
 
@@ -12,16 +12,31 @@ public:
     
     void print();
     
+    //Validationg the data 
+    double leave_one_out_cross_validation(); 
+    
+    //tree traversals 
     void Forward_Selection();
     void Backward_Elimination();
     void Lino_Selection();
     
+    void GetRealFeatures();
+    
+    //////////two flavors of this soon////
+    int bf_nearest_neighbor(unsigned);
+    ////////Distance for any dimentional points////////
+    float N_dimensinal_distance(vector<float> point1 ,vector<float> point2);
+    
+    //return the subset of best features
+    void results();
+    
     
 private:
-     double accuracy;
      int NumFeature;
+     double TopAccuracy;
      vector<vector<float>> Data;
      vector<int> ListFeatures;
+     vector<int> BestFeatures;
     
     
 };
