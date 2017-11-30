@@ -1,5 +1,5 @@
 Report found here: 
-https://docs.google.com/a/ucr.edu/document/d/1p51Q44TDJV_Ei0KHXcfDtbz-lr7aMgWe5ufAPLTuOBI/edit?usp=sharing
+https://docs.google.com/document/d/1p51Q44TDJV_Ei0KHXcfDtbz-lr7aMgWe5ufAPLTuOBI/edit?usp=sharing
 
 Project: 2	 CS 170. Introduction to Artificial Intelligence
 Due Date: Tuesday of finals week at 5:00pm
