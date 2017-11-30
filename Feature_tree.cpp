@@ -129,32 +129,24 @@ int Feature_tree::bf_nearest_neighbor(unsigned leave_out){
    
     for(unsigned x = 0; x < ListFeatures.size();x++){
             a.push_back(Data[leave_out][ListFeatures[x]]);
-            //cout<< "\na"<<x<<" " <<a[x]<<endl;
-            //cin>>s;
     }
     for(unsigned j = 0; j < Data.size();j++){
         
         if(j == leave_out) continue; 
-        
-        //cout << "List: "<< ListFeatures.size()<<endl;
+    
         for(unsigned y = 0; y < ListFeatures.size();y++){
             b.push_back(Data[j][ListFeatures[y]]);
-            //cout<< "b"<<j<<" " <<b[y]<<endl;
-            //cin>>s;
+            
         }
         temp = N_dimensinal_distance(a,b);
         b.clear();
-        //cout <<"D: " <<  temp <<endl; 
         if(temp < inf){
             inf = temp;
             classified = Data[j][0];
         }
             
     }
-    //cout << "Classified: "<< classified <<endl;
-    return classified; 
-    
-    
+    return classified;
 }
 float Feature_tree::N_dimensinal_distance(vector<float> point1 ,vector<float> point2){
     float distance = 0;
@@ -171,12 +163,11 @@ float Feature_tree::N_dimensinal_distance(vector<float> point1 ,vector<float> po
      vector<vector<int>> all_best_feat;
      vector<vector<float>> temp_data = Data; 
      
-     for(unsigned i = 0; i < 100; i++){
+     for(unsigned i = 0; i < 5; i++){
          srand(time(NULL));
          Data = temp_data;
          for(unsigned j = 0; j < 5; j++){
              int c = rand()% 100;
-             //cout<<"\nrand: "<<c<<endl;
              Data.erase(Data.begin()+ (c));
          }
          Forward_Selection(); 
@@ -187,7 +178,7 @@ float Feature_tree::N_dimensinal_distance(vector<float> point1 ,vector<float> po
      }
      
     cout<<"\nFinished!\n";
-    for(unsigned n = 0; n <100; n++){
+    for(unsigned n = 0; n <5; n++){
         cout<<"The best feature(s) are {";
         for(unsigned m = 0; m < all_best_feat[n].size();m++){
                 if(m != all_best_feat[n].size()-1)
@@ -195,7 +186,7 @@ float Feature_tree::N_dimensinal_distance(vector<float> point1 ,vector<float> po
                 else
                     cout<<all_best_feat[n][m];
         }
-        cout<<"} with and accuracy of "<< all_best_accuracy[n]<<"%."<<endl;
+        cout<<"} with an accuracy of "<< all_best_accuracy[n]<<"%."<<endl;
     }
 }
 
@@ -211,6 +202,6 @@ void Feature_tree::results()
             else
                 cout<<BestFeatures[n];
     }
-    cout<<"} with and accuracy of "<< TopAccuracy<<"%."<<endl;
+    cout<<"} with an accuracy of "<< TopAccuracy<<"%."<<endl;
     
 }
